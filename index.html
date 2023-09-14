@@ -11,6 +11,8 @@
         name="description"
         content="Game Rock-Paper-Scissors developed with JavaScript" />
     <link rel="icon" href="Pictures/game-icon.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" defer></script>
 </head>
 <body>
     <header>
@@ -18,8 +20,22 @@
     </header>
 
     <main>
-        
-        gameplay
+        <button class="btn btn-primary">get started</button>
+        <p class="d-inline-flex gap-1">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHowToPlay" aria-expanded="false" aria-controls="collapseHowToPlay">
+              How to Play?
+            </button>
+        </p>
+        <div class="collapse" id="collapseHowToPlay">
+            <div class="card card-body">
+                <p>The rules:</p>
+                <ul>
+                    <li>If you choose Rock, you will win against Scissors but lose against Paper.</li>
+                    <li>If you choose Scissors, you will win against Paper but lose against Rock.</li>
+                    <li>If you choose Paper, you will win against Rock but lose against Scissors.</li>
+                </ul>
+            </div>
+        </div>
            
     </main>
 
