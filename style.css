@@ -4,7 +4,7 @@
 }
 
 body{
-    height: calc(100vh-(4*var(--marginHMF)));
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -12,9 +12,9 @@ body{
 body>*{
     border: black solid;
     --marginHMF: 10px; /* HMF: Header Main Footer */
-    margin: var(--marginHMF);
+    margin: var(--marginHMF); 
 }
 
 main{
-    flex-grow: 1;
+   flex-grow: 1; 
 }
