@@ -1,5 +1,10 @@
+h1 a{
+    text-decoration: none;
+    color: black;
+}
+
 #backgroundOfGame{
-    background-image: linear-gradient(45deg,#960cc5,#cd6d14);
+    background-image: linear-gradient(45deg,rgb(27, 115, 192),rgb(27, 192, 167));
 }
 
 .transparent-white{

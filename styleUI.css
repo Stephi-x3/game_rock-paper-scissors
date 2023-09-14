@@ -18,23 +18,40 @@ body>*{
 
 main{
    flex-grow: 1;
+   display: flex;
+   flex-direction: column;
 }
 
-main .container-button{
-   text-align: center; 
-}
-
-#container-button-getStarted{
-    height: 60%;
+main>*{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aliceblue;
+    flex-direction: column;
+}
+
+.container-button{
+   text-align: center; 
+}
+
+.container-getStarted{
+    height: 50%;
+    width: auto;
+    background-color: rgb(27, 115, 192);
+    background-image: url(Pictures/hallo.png);
+    background-size: 10%;
+}
+
+.container-howToPlay{
+    border: black solid;
+    margin-top: 5px;
+    padding-top: 10px;
+    flex: 1;
 }
 
 #button-startGame{
     text-transform: uppercase;
     --bs-btn-font-size: 2rem;
+    --bs-btn-border-color: rgb(255, 255, 255);
 }
 
 #button-startGame a{
@@ -48,7 +65,7 @@ main .container-button{
 }
 #button-howToPlay:hover{
     background-color: rgb(86, 86, 86);
-    border-color: black;
+    --bs-btn-border-color: rgb(0, 0, 0);
 }
 
 footer{
