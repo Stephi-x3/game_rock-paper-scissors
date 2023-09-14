@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: calc(100vh-(4*var(--marginHMF)));
+}
+
+body>*{
+    border: black solid;
+    --marginHMF: 10px; /* HMF: Header Main Footer */
+    margin: var(--marginHMF);
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex-grow: 1;
+}
