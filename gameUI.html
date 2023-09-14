@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleUI.css"> 
+    <link rel="stylesheet" href="styleUI.css">
+    <link rel="stylesheet" href="styleOfGame.css"> 
     <title>Rock-Paper-Scissors</title>
     <meta name="author" content="Stephanie Beck" />
     <meta
@@ -18,31 +19,13 @@
         <h1>Rock - Paper - Scissors</h1>
     </header>
 
-    <main>
-        <p class="container-button" id="container-button-getStarted">
-            <button class="btn btn-primary" id="button-startGame">
-                get started</button>
-        </p>
-        
-        <div class="container-button-howToPlay">
-            <p class="container-button">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHowToPlay" aria-expanded="false" aria-controls="collapseHowToPlay" id="button-howToPlay">
-              How to Play?
-            </button>
-        </p>
-        <div class="collapse" id="collapseHowToPlay">
-            <div class="card card-body">
-                <p>The rules:</p>
-                <ul>
-                    <li>If you choose Rock, you will win against Scissors but lose against Paper.</li>
-                    <li>If you choose Scissors, you will win against Paper but lose against Rock.</li>
-                    <li>If you choose Paper, you will win against Rock but lose against Scissors.</li>
-                </ul>
-            </div>
+    <main id="backgroundOfGame">
+        <h2 class="transparent-white">Round <span id="nbrOfRound"></span></h2>
+        <div class="playerComputerChoices">
+            <div class="player"></div>
+            <div class="computer"></div>
         </div>
-        </div>
-        
-           
+        <div class="feedbackWinLoose"></div>           
     </main>
 
     <footer>
