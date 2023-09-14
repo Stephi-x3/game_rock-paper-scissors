@@ -17,13 +17,41 @@ body>*{
 }
 
 main{
-   flex-grow: 1; 
+   flex-grow: 1;
 }
 
-button{
+main .container-button{
+   text-align: center; 
+}
+
+#container-button-getStarted{
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+#button-startGame{
     text-transform: uppercase;
+    --bs-btn-font-size: 2rem;
+}
+
+#button-howToPlay{
+    --bs-btn-bg: rgb(105, 105, 105);
+    --bs-btn-border-color: rgb(17, 17, 17);
+}
+#button-howToPlay:hover{
+    background-color: rgb(86, 86, 86);
+    border-color: black;
 }
 
 footer{
     text-align: right;
 }
+
+@media screen and (max-width: 500px) {
+    #container-button-getStarted{
+        height: 30%;
+    }
+  }
