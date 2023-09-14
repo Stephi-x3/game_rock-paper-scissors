@@ -5,14 +5,14 @@
 
 body{
     height: calc(100vh-(4*var(--marginHMF)));
+    display: flex;
+    flex-direction: column;
 }
 
 body>*{
     border: black solid;
     --marginHMF: 10px; /* HMF: Header Main Footer */
     margin: var(--marginHMF);
-    display: flex;
-    flex-direction: column;
 }
 
 main{
