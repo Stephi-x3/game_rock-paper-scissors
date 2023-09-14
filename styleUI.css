@@ -37,6 +37,11 @@ main .container-button{
     --bs-btn-font-size: 2rem;
 }
 
+#button-startGame a{
+    color: white;
+    text-decoration: none;
+}
+
 #button-howToPlay{
     --bs-btn-bg: rgb(105, 105, 105);
     --bs-btn-border-color: rgb(17, 17, 17);
@@ -54,4 +59,4 @@ footer{
     #container-button-getStarted{
         height: 30%;
     }
-  }
+}
