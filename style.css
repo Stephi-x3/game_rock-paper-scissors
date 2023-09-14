@@ -12,9 +12,14 @@ body{
 body>*{
     border: black solid;
     --marginHMF: 10px; /* HMF: Header Main Footer */
-    margin: var(--marginHMF); 
+    margin: var(--marginHMF);
+    padding: 5px; 
 }
 
 main{
    flex-grow: 1; 
+}
+
+footer{
+    text-align: right;
 }
