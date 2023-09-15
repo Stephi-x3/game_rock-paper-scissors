@@ -20,7 +20,7 @@ h1 a{
     color: white;
 }
 
-.card :nth-child(1){
+.card :nth-last-child(1){
     height: 100px;
     width: auto;
 }
