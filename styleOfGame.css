@@ -18,6 +18,7 @@ h1 a{
     background-color: transparent;
     border: white solid 1px;
     color: white;
+    text-align: center;
 }
 
 .card :nth-last-child(1){
@@ -27,4 +28,13 @@ h1 a{
 
 #scissors-img{
     transform: scale(50%);
+}
+
+main *{
+    text-align: center;
+}
+
+.choicesOfRound{
+    flex-direction: row;
+    justify-content: space-evenly;
 }
