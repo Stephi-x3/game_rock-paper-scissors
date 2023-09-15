@@ -25,10 +25,10 @@
         <div class="container text-center">
             <div class="row">
               <div class="col">
-                <img src="..." class="img-fluid" alt="ChoiceOfComputer">
+                <img src="#" class="img-fluid" alt="ChoiceOfComputer">
               </div>
               <div class="col">
-                <img src="..." class="img-fluid" alt="YourChoice">
+                <img src="#" class="img-fluid" alt="YourChoice">
         </div>
         <div class="playerComputerChoices">
             <div class="player"></div>
@@ -38,21 +38,27 @@
         <!--User clicks on the card of his decision-->
         <div class="card-group">
             <div class="card">
-              <img src="Pictures/stonePlayer.png" class="card-img-top" alt="Rock">
+              <div>
+                <img src="Pictures/stonePlayer.png" class="card-img-top" alt="Rock">
+              </div>
               <div class="card-body">
                 <h5 class="card-title">Rock</h5>
                 <p class="card-text">If you choose Rock, you will win against Scissors but lose against Paper.</p>
               </div>
             </div>
             <div class="card">
-              <img src="Pictures/paperPlayer.png" class="card-img-top" alt="Paper">
+              <div>
+                <img src="Pictures/paperPlayer.png" class="card-img-top" alt="Paper">
+              </div>
               <div class="card-body">
                 <h5 class="card-title">Paper</h5>
                 <p class="card-text">If you choose Paper, you will win against Rock but lose against Scissors.</p>
               </div>
             </div>
             <div class="card">
-              <img src="Pictures/scissorsPlayer.png" class="card-img-top" alt="Scissors">
+              <div>
+                <img src="Pictures/scissorsPlayer.png" class="card-img-top" id="scissors-img" alt="Scissors">
+              </div>  
               <div class="card-body">
                 <h5 class="card-title">Scissors</h5>
                 <p class="card-text">If you choose Scissors, you will win against Paper but lose against Rock.</p>
@@ -61,7 +67,7 @@
           </div>
 
         <!--Feedback: WinnerOfRound-->
-        <div class="feedbackWinLoose"></div>           
+        <div class="feedbackWinLoose transparent-white"></div>           
     </main>
 
     <footer>
