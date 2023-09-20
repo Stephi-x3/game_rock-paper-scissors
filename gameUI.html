@@ -20,12 +20,20 @@
     </header>
 
     <main id="backgroundOfGame">
-        <h2 class="transparent-white">Round <span id="nbrOfRound">0</span></h2>
+        <div id="start-chooseNbrRound" class="transparent-black">
+          <p>How many rounds would you like to play?</p>
+          <div class="row-nbrOfRounds">
+            <button>3</button>
+            <button>5</button>
+            <button>10</button>
+          </div>
+        </div>
+
+        <h2 class="transparent-white">Round<span id="nbrOfRound">0</span></h2>
         <h3>Make a choice</h3>
         
-        <!--User clicks on the card of his decision-->
         <div class="card-group">
-            <div class="card">
+            <div class="card" id="rock-card">
               <div>
                 <img src="Pictures/stonePlayer.png" class="card-img-top" alt="Rock">
               </div>
@@ -34,7 +42,7 @@
                 <p class="card-text">If you choose Rock, you will win against Scissors but lose against Paper.</p>
               </div>
             </div>
-            <div class="card">
+            <div class="card" id="paper-card">
               <div>
                 <img src="Pictures/paperPlayer.png" class="card-img-top" alt="Paper">
               </div>
@@ -43,7 +51,7 @@
                 <p class="card-text">If you choose Paper, you will win against Rock but lose against Scissors.</p>
               </div>
             </div>
-            <div class="card">
+            <div class="card" id="scissors-card">
               <div>
                 <img src="Pictures/scissorsPlayer.png" class="card-img-top" id="scissors-img" alt="Scissors">
               </div>  
