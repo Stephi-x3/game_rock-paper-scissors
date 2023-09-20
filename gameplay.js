@@ -31,9 +31,8 @@ function playRound(playerSelection, computerSelection, possibleShapes) {
     }
 }
 
-function startGame(){
-    
-    roundsToPlay = parseInt(clickedButton.target.innerHTML);
+function startGame(clickedButton){
+    roundsToPlay = parseInt(clickedButton.innerHTML);
     const possibleShapes = ["Rock", "Paper", "Scissors"];
     let score_Player = 0;
     let score_Computer = 0;
