@@ -35,9 +35,13 @@ function game(){
     const possibleShapes = ["Rock", "Paper", "Scissors"];
     let score_Player = 0;
     let score_Computer = 0;
-    const roundsToPlay = prompt("How many game rounds would you like to play? Enter a number from 1 to 10.");
-    console.log("Let's start.");
+    const roundsToPlay = 0;
+    const nbrRoundButton = document.getElementsByClassName('nbrOfRounds');
+    nbrRoundButton.forEach(button => {
+        
+    });
 
+    document.getElementById('start-chooseNbrRound').style = 'display: none;';
 
     for (let currentRound = 1; currentRound <= roundsToPlay; currentRound++) {
         
