@@ -31,17 +31,12 @@ function playRound(playerSelection, computerSelection, possibleShapes) {
     }
 }
 
-function game(){
+function startGame(){
+    
+    roundsToPlay = parseInt(clickedButton.target.innerHTML);
     const possibleShapes = ["Rock", "Paper", "Scissors"];
     let score_Player = 0;
     let score_Computer = 0;
-    const roundsToPlay = 0;
-    const nbrRoundButton = document.getElementsByClassName('nbrOfRounds');
-    nbrRoundButton.forEach(button => {
-        
-    });
-
-    document.getElementById('start-chooseNbrRound').style = 'display: none;';
 
     for (let currentRound = 1; currentRound <= roundsToPlay; currentRound++) {
         
@@ -69,4 +64,9 @@ function game(){
 }
 
 
-game();
+const nbrRoundButton = document.querySelectorAll('.nbrOfRounds');
+nbrRoundButton.forEach(button => button.addEventListener('click', () => {
+    nbrRoundButton.forEach(button => button.removeEventListener('click', () => {}));
+    document.getElementById('start-chooseNbrRound').style = 'display: none;';
+    startGame(button);
+}));
