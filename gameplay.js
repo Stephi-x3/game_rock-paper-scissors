@@ -59,7 +59,7 @@ function startGame(clickedButton){
     document.getElementsByClassName('feedbackWinLoose')[0].textContent = `Final Game Score:
         Computer: ${score_Computer} | You: ${score_Player}`;
     if(score_Player>score_Computer){
-        console.log("Congratulations!")
+        document.getElementById('backgroundOfGame').style.backgroundImage = 'url(Pictures/congrats.png)';
     }
 }
 
