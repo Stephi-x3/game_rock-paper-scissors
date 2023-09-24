@@ -41,7 +41,8 @@ function startGame(clickedButton){
     let playerSelection = "";
 
     for (let currentRound = 1; currentRound <= roundsToPlay; currentRound++) {
-        
+        document.getElementById('nbrOfRound').textContent = currentRound;
+
         computerSelection = getComputerChoice(); 
         playerSelection = possibleShapes[prompt("Write a number: 1 = Rock, 2 = Paper, 3 = Scissors")-1];
         
