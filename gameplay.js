@@ -55,12 +55,11 @@ function startGame(clickedButton){
             score_Computer++;
         }
     }
-    console.log("*******************************");
-    console.log("Final Game Score:\nYou: "+score_Player+" | Computer: "+score_Computer);
+    document.getElementsByClassName('feedbackWinLoose')[0].textContent = `Final Game Score:
+        Computer: ${score_Computer} | You: ${score_Player}`;
     if(score_Player>score_Computer){
         console.log("Congratulations!")
     }
-    console.log("*******************************");
 }
 
 
