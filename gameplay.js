@@ -45,8 +45,8 @@ function startGame(clickedButton){
         computerSelection = getComputerChoice(); 
         playerSelection = possibleShapes[prompt("Write a number: 1 = Rock, 2 = Paper, 3 = Scissors")-1];
         
-        console.log("Your choice: "+playerSelection+" | Opponent's choice: "+computerSelection);
-        console.log("--- Ergebnis von Runde "+currentRound+" ---");
+        document.getElementsByClassName('choiceComputer')[0].textContent = `${computerSelection}`;
+        document.getElementsByClassName('choicePlayer')[0].textContent = `${playerSelection}`;
         
         let winner = playRound(playerSelection, computerSelection, possibleShapes);
         if (winner == "playerWins") {
