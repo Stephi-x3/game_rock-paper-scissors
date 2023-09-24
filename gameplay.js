@@ -56,6 +56,7 @@ function startGame(clickedButton){
             score_Computer++;
         }
     }
+    document.getElementById('mainGameplay').style.display = 'none';
     document.getElementsByClassName('feedbackWinLoose')[0].textContent = `Final Game Score:
         Computer: ${score_Computer} | You: ${score_Player}`;
     if(score_Player>score_Computer){
