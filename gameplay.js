@@ -36,13 +36,14 @@ function startGame(clickedButton){
     const possibleShapes = ["Rock", "Paper", "Scissors"];
     let score_Player = 0;
     let score_Computer = 0;
+    const getComputerChoice = () => possibleShapes[Math.floor(Math.random() * 3)];
+    let computerSelection = "";
+    let playerSelection = "";
 
     for (let currentRound = 1; currentRound <= roundsToPlay; currentRound++) {
         
-        const getComputerChoice = () => possibleShapes[Math.floor(Math.random() * 3)];
-        let computerSelection = getComputerChoice();
-        
-        let playerSelection = possibleShapes[prompt("Write a number: 1 = Rock, 2 = Paper, 3 = Scissors")-1];
+        computerSelection = getComputerChoice(); 
+        playerSelection = possibleShapes[prompt("Write a number: 1 = Rock, 2 = Paper, 3 = Scissors")-1];
         
         console.log("Your choice: "+playerSelection+" | Opponent's choice: "+computerSelection);
         console.log("--- Ergebnis von Runde "+currentRound+" ---");
