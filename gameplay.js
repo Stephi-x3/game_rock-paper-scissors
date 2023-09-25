@@ -31,25 +31,47 @@ function playRound(playerSelection, computerSelection, possibleShapes) {
     }
 }
 
-function startGame(clickedButton){
+async function playerMakesChoice(cards){
+    const controller = new AbortController(); 
+    return new Promise((resolve) => {
+        cards.forEach(card => card.addEventListener('click', (event) => {
+            console.log(event.target);
+            //cards.forEach(card => card.removeEventListener('click', () => {}));
+            controller.abort();
+            resolve();
+        },
+            { signal: controller.signal }
+        ));
+    });
+}
+
+async function startGame(clickedButton){
     roundsToPlay = parseInt(clickedButton.innerHTML);
     const possibleShapes = ["Rock", "Paper", "Scissors"];
     let score_Player = 0;
     let score_Computer = 0;
+    let winner = "";
     const getComputerChoice = () => possibleShapes[Math.floor(Math.random() * 3)];
     let computerSelection = "";
     let playerSelection = "";
+    const cards = document.querySelectorAll('.card');
+    console.log(cards);
+    //const cards = document.getElementsByClassName('card');
 
     for (let currentRound = 1; currentRound <= roundsToPlay; currentRound++) {
         document.getElementById('nbrOfRound').textContent = currentRound;
 
-        computerSelection = getComputerChoice(); 
-        playerSelection = possibleShapes[prompt("Write a number: 1 = Rock, 2 = Paper, 3 = Scissors")-1];
+        computerSelection = getComputerChoice();
+        
+        //playerSelection: Player clicks on picture
+        await playerMakesChoice(cards);
+        //cards.forEach(card => card.addEventListener('click', (event) => { playerSelection = event.id }));
+        //playerSelection = possibleShapes[prompt("Write a number: 1 = Rock, 2 = Paper, 3 = Scissors")-1];
         
         document.getElementsByClassName('choiceComputer')[0].textContent = `${computerSelection}`;
         document.getElementsByClassName('choicePlayer')[0].textContent = `${playerSelection}`;
         
-        let winner = playRound(playerSelection, computerSelection, possibleShapes);
+        winner = playRound(playerSelection, computerSelection, possibleShapes);
         if (winner == "playerWins") {
             score_Player++;
         } else if(winner == "compWins") {
@@ -67,7 +89,6 @@ function startGame(clickedButton){
 
 const nbrRoundButton = document.querySelectorAll('.nbrOfRounds');
 nbrRoundButton.forEach(button => button.addEventListener('click', () => {
-    nbrRoundButton.forEach(button => button.removeEventListener('click', () => {}));
     document.getElementById('start-chooseNbrRound').style = 'display: none;';
     startGame(button);
 }));
