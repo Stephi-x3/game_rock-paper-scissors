@@ -35,8 +35,7 @@ async function playerMakesChoice(cards){
     const controller = new AbortController(); 
     return new Promise((resolve) => {
         cards.forEach(card => card.addEventListener('click', (event) => {
-            console.log(event.target);
-            //cards.forEach(card => card.removeEventListener('click', () => {}));
+            console.log(event.target.parentNode.parentNode);
             controller.abort();
             resolve();
         },
