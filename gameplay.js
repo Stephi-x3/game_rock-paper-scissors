@@ -1,68 +1,103 @@
 function playRound(playerSelection, computerSelection, possibleShapes) {
     if (playerSelection == computerSelection) {
-        console.log("It's a tie!");
+        document.getElementsByClassName('feedbackRound')[0].textContent = "It's a tie!";
         return "noWin";
     } else {
         if (playerSelection == possibleShapes[0]) {
             if (computerSelection == possibleShapes[1]) {
-                console.log("Computer wins...");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'No win...';
                 return "compWins";
             } else {
-                console.log("You win!");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'You won!';
                 return "playerWins";
             }
         } else if (playerSelection == possibleShapes[1]){
             if (computerSelection == possibleShapes[2]) {
-                console.log("Computer wins...");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'No win...';
                 return "compWins";
             } else {
-                console.log("You win!");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'You won!';
                 return "playerWins";
             }
         } else {
             if (computerSelection == possibleShapes[0]) {
-                console.log("Computer wins...");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'No win...';
                 return "compWins";
             } else {
-                console.log("You win!");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'You won!';
                 return "playerWins";
             }
         }                     
     }
 }
 
-function game(){
+async function getPlayerChoice(cards, choice){
+    //controller instead of removeEventListener
+    const controller = new AbortController(); 
+    return new Promise((resolve) => {
+        cards.forEach(card => card.addEventListener('click', (event) => {
+            controller.abort();
+            if (cards[0] == event.target.parentNode) {
+                resolve(choice[0]); 
+            } else if (cards[1] == event.target.parentNode) {
+                resolve(choice[1]);
+            } else if (cards[2] == event.target.parentNode) {
+                resolve(choice[2]);
+            } 
+        },
+            { signal: controller.signal }
+        ));
+    });
+}
+
+async function startGame(clickedButton){
+    roundsToPlay = parseInt(clickedButton.innerHTML);
     const possibleShapes = ["Rock", "Paper", "Scissors"];
     let score_Player = 0;
     let score_Computer = 0;
-    const roundsToPlay = prompt("How many game rounds would you like to play? Enter a number from 1 to 10.");
-    console.log("Let's start.");
-
+    let winner = "";
+    const getComputerChoice = () => possibleShapes[Math.floor(Math.random() * 3)];
+    let computerSelection = '';
+    let playerSelection = '';
+    const cards = document.querySelectorAll('.card');
 
     for (let currentRound = 1; currentRound <= roundsToPlay; currentRound++) {
+        document.getElementById('nbrOfRound').textContent = currentRound;
+
+        computerSelection = getComputerChoice();
         
-        const getComputerChoice = () => possibleShapes[Math.floor(Math.random() * 3)];
-        let computerSelection = getComputerChoice();
+        //wait for players choice
+        playerSelection = await getPlayerChoice(cards, possibleShapes);
         
-        let playerSelection = possibleShapes[prompt("Write a number: 1 = Rock, 2 = Paper, 3 = Scissors")-1];
+        document.getElementsByClassName('choiceComputer')[0].textContent = `${computerSelection}`;
+        document.getElementsByClassName('choicePlayer')[0].textContent = `${playerSelection}`;
         
-        console.log("Your choice: "+playerSelection+" | Opponent's choice: "+computerSelection);
-        console.log("--- Ergebnis von Runde "+currentRound+" ---");
-        
-        let winner = playRound(playerSelection, computerSelection, possibleShapes);
+        winner = playRound(playerSelection, computerSelection, possibleShapes);
         if (winner == "playerWins") {
             score_Player++;
         } else if(winner == "compWins") {
             score_Computer++;
         }
     }
-    console.log("*******************************");
-    console.log("Final Game Score:\nYou: "+score_Player+" | Computer: "+score_Computer);
-    if(score_Player>score_Computer){
-        console.log("Congratulations!")
-    }
-    console.log("*******************************");
+    
+    setTimeout(() => {
+        document.getElementById('mainGameplay').style.display = 'none';
+        document.getElementsByClassName('finalFeedback')[0].textContent = `Final Game Score:
+        Computer: ${score_Computer} | You: ${score_Player}`;
+    }, 1000);
+
+    setTimeout(() => {
+        
+        if(score_Player>score_Computer){
+            document.getElementById('backgroundOfGame').style.backgroundImage = 'url(Pictures/congrats.png)';
+            document.getElementsByClassName('congrats')[0].textContent = `Congratulations!`;
+        }
+    }, 1000);
 }
 
 
-game();
+const nbrRoundButton = document.querySelectorAll('.nbrOfRounds');
+nbrRoundButton.forEach(button => button.addEventListener('click', () => {
+    document.getElementById('start-chooseNbrRound').style = 'display: none;';
+    startGame(button);
+}));
