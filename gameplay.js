@@ -1,30 +1,30 @@
 function playRound(playerSelection, computerSelection, possibleShapes) {
     if (playerSelection == computerSelection) {
-        console.log("It's a tie!");
+        document.getElementsByClassName('feedbackRound')[0].textContent = "It's a tie!";
         return "noWin";
     } else {
         if (playerSelection == possibleShapes[0]) {
             if (computerSelection == possibleShapes[1]) {
-                console.log("Computer wins...");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'No win...';
                 return "compWins";
             } else {
-                console.log("You win!");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'You won!';
                 return "playerWins";
             }
         } else if (playerSelection == possibleShapes[1]){
             if (computerSelection == possibleShapes[2]) {
-                console.log("Computer wins...");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'No win...';
                 return "compWins";
             } else {
-                console.log("You win!");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'You won!';
                 return "playerWins";
             }
         } else {
             if (computerSelection == possibleShapes[0]) {
-                console.log("Computer wins...");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'No win...';
                 return "compWins";
             } else {
-                console.log("You win!");
+                document.getElementsByClassName('feedbackRound')[0].textContent = 'You won!';
                 return "playerWins";
             }
         }                     
@@ -60,7 +60,6 @@ async function startGame(clickedButton){
     let computerSelection = '';
     let playerSelection = '';
     const cards = document.querySelectorAll('.card');
-    console.log(cards);
 
     for (let currentRound = 1; currentRound <= roundsToPlay; currentRound++) {
         document.getElementById('nbrOfRound').textContent = currentRound;
@@ -83,7 +82,7 @@ async function startGame(clickedButton){
     
     setTimeout(() => {
         document.getElementById('mainGameplay').style.display = 'none';
-        document.getElementsByClassName('feedbackWinLoose')[0].textContent = `Final Game Score:
+        document.getElementsByClassName('finalFeedback')[0].textContent = `Final Game Score:
         Computer: ${score_Computer} | You: ${score_Player}`;
     }, 1000);
 
