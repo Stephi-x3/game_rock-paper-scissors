@@ -31,13 +31,19 @@ function playRound(playerSelection, computerSelection, possibleShapes) {
     }
 }
 
-async function playerMakesChoice(cards){
+async function getPlayerChoice(cards, choice){
+    //controller instead of removeEventListener
     const controller = new AbortController(); 
     return new Promise((resolve) => {
         cards.forEach(card => card.addEventListener('click', (event) => {
-            console.log(event.target.parentNode);
             controller.abort();
-            resolve();
+            if (cards[0] == event.target.parentNode) {
+                resolve(choice[0]); 
+            } else if (cards[1] == event.target.parentNode) {
+                resolve(choice[1]);
+            } else if (cards[2] == event.target.parentNode) {
+                resolve(choice[2]);
+            } 
         },
             { signal: controller.signal }
         ));
@@ -51,21 +57,18 @@ async function startGame(clickedButton){
     let score_Computer = 0;
     let winner = "";
     const getComputerChoice = () => possibleShapes[Math.floor(Math.random() * 3)];
-    let computerSelection = "";
-    let playerSelection = "";
+    let computerSelection = '';
+    let playerSelection = '';
     const cards = document.querySelectorAll('.card');
     console.log(cards);
-    //const cards = document.getElementsByClassName('card');
 
     for (let currentRound = 1; currentRound <= roundsToPlay; currentRound++) {
         document.getElementById('nbrOfRound').textContent = currentRound;
 
         computerSelection = getComputerChoice();
         
-        //playerSelection: Player clicks on picture
-        await playerMakesChoice(cards);
-        //cards.forEach(card => card.addEventListener('click', (event) => { playerSelection = event.id }));
-        //playerSelection = possibleShapes[prompt("Write a number: 1 = Rock, 2 = Paper, 3 = Scissors")-1];
+        //wait for players choice
+        playerSelection = await getPlayerChoice(cards, possibleShapes);
         
         document.getElementsByClassName('choiceComputer')[0].textContent = `${computerSelection}`;
         document.getElementsByClassName('choicePlayer')[0].textContent = `${playerSelection}`;
@@ -77,12 +80,20 @@ async function startGame(clickedButton){
             score_Computer++;
         }
     }
-    document.getElementById('mainGameplay').style.display = 'none';
-    document.getElementsByClassName('feedbackWinLoose')[0].textContent = `Final Game Score:
+    
+    setTimeout(() => {
+        document.getElementById('mainGameplay').style.display = 'none';
+        document.getElementsByClassName('feedbackWinLoose')[0].textContent = `Final Game Score:
         Computer: ${score_Computer} | You: ${score_Player}`;
-    if(score_Player>score_Computer){
-        document.getElementById('backgroundOfGame').style.backgroundImage = 'url(Pictures/congrats.png)';
-    }
+    }, 1000);
+
+    setTimeout(() => {
+        
+        if(score_Player>score_Computer){
+            document.getElementById('backgroundOfGame').style.backgroundImage = 'url(Pictures/congrats.png)';
+            document.getElementsByClassName('congrats')[0].textContent = `Congratulations!`;
+        }
+    }, 1000);
 }
 
 
