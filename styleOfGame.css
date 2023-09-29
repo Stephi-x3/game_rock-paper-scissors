@@ -58,6 +58,7 @@ main *{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .overlay {
@@ -68,4 +69,15 @@ main *{
     height: 100%;
     background-color: transparent;
     z-index: 1;
+}
+
+.row-nbrOfRounds{
+    display: flex;
+    justify-content: center;
+}
+
+.nbrOfRounds{
+    width: 3em;
+    text-align: center;
+    margin: 5px;
 }
