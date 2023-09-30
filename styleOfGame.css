@@ -41,6 +41,7 @@ h3{
 .card-body{
     --bs-card-color: white;
     flex: 1;
+    padding: 0px 10px;
 }
 
 .card div>*{
