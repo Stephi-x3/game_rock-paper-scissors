@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleUI.css">
-    <link rel="stylesheet" href="styleOfGame.css"> 
     <script src="gameplay.js" defer></script>
     <title>Rock-Paper-Scissors</title>
     <meta name="author" content="Stephanie Beck" />
@@ -14,6 +12,8 @@
     <link rel="icon" href="Pictures/game-icon.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous" defer></script>
+    <link rel="stylesheet" href="styleUI.css">
+    <link rel="stylesheet" href="styleOfGame.css"> 
 </head>
 <body>
     <header>
@@ -23,15 +23,16 @@
     <main id="backgroundOfGame">
       <div id="mainGameplay">
         <div id="start-chooseNbrRound" class="transparent-black">
-          <p>How many rounds would you like to play?</p>
+          <h2>How many rounds would you like to play?</h2>
           <div class="row-nbrOfRounds">
-            <button class="nbrOfRounds">3</button>
-            <button class="nbrOfRounds">5</button>
-            <button class="nbrOfRounds">10</button>
+            <button class="nbrOfRounds btn btn-primary">3</button>
+            <button class="nbrOfRounds btn btn-primary">5</button>
+            <button class="nbrOfRounds btn btn-primary">10</button>
           </div>
         </div>
 
-        <h2 class="transparent-white">Round<span id="nbrOfRound">0</span></h2>
+        <h2 class="transparent-white">Round&nbsp;<span id="nbrOfRound">0</span></h2>
+        
         <h3>Make a choice</h3>
         
         <div class="card-group">
@@ -42,7 +43,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title">Rock</h5>
-                <p class="card-text">If you choose Rock, you will win against Scissors but lose against Paper.</p>
+                <p class="card-text d-none d-md-block">If you choose Rock, you will win against Scissors but lose against Paper.</p>
               </div>
             </div>
             <div class="card" id="paper-card">
@@ -52,7 +53,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title">Paper</h5>
-                <p class="card-text">If you choose Paper, you will win against Rock but lose against Scissors.</p>
+                <p class="card-text d-none d-md-block">If you choose Paper, you will win against Rock but lose against Scissors.</p>
               </div>
             </div>
             <div class="card" id="scissors-card">
@@ -62,7 +63,7 @@
               </div>  
               <div class="card-body">
                 <h5 class="card-title">Scissors</h5>
-                <p class="card-text">If you choose Scissors, you will win against Paper but lose against Rock.</p>
+                <p class="card-text d-none d-md-block">If you choose Scissors, you will win against Paper but lose against Rock.</p>
               </div>
             </div>
           </div>
@@ -73,8 +74,9 @@
             <div class="choiceComputer">-</div>
             <div class="choicePlayer">-</div>
             <div>Player</div>
+            <div class="feedbackRound"></div>
         </div>
-        <div class="feedbackRound transparent-white"></div>
+        
       </div>
 
       <div class="finalFeedback"></div>

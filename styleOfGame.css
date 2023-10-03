@@ -3,9 +3,22 @@ h1 a{
     color: black;
 }
 
+h2{
+    width: 100%;
+    padding: 10px 0px;
+}
+
+h3{
+    color: white;
+    -webkit-text-stroke: .5px black;
+}
+
 #backgroundOfGame{
     background-image: linear-gradient(45deg,rgb(27, 115, 192),rgb(27, 192, 167));
     padding: 10px 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .transparent-white{
@@ -14,16 +27,18 @@ h1 a{
 }
 
 .transparent-black{
-    background-color: rgba(32, 31, 31, 0.855);
+    background-color: rgba(32, 31, 31, 0.95);
     color: white;
+}
+
+.card-group{
+    width: 80%;
 }
 
 .card-group>.card{
     background-image: linear-gradient(45deg,rgba(255, 255, 255, 0.256),rgba(255, 255, 255, 0.732));
     background-color: transparent;
     border: white solid 1px;
-    color: white;
-    text-align: center;
 }
 
 .card :nth-last-child(1){
@@ -31,8 +46,15 @@ h1 a{
     width: auto;
 }
 
+.card-body{
+    --bs-card-color: white;
+    flex: 1;
+    padding: 0px 10px;
+}
+
 .card div>*{
     width: 100%;
+    height: auto;
 }
 
 #scissors-img{
@@ -43,14 +65,9 @@ main *{
     text-align: center;
 }
 
-.choicesOfRound{
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
 #start-chooseNbrRound{
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     height: 100%;
@@ -58,6 +75,7 @@ main *{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .overlay {
@@ -68,4 +86,59 @@ main *{
     height: 100%;
     background-color: transparent;
     z-index: 1;
+}
+
+.row-nbrOfRounds{
+    display: flex;
+    justify-content: center;
+}
+
+.nbrOfRounds{
+    width: 3em;
+    text-align: center;
+    margin: 5px;
+    --bs-btn-border-color: white;
+}
+
+.choicesOfRound{
+    display: grid;
+    grid-template-areas: 
+        "computer choiceC" 
+        "player choiceP"
+        "feedback feedback";
+    gap: 10px;
+    grid-template-columns: 100px 100px;
+    color: white;
+}
+
+.choicesOfRound>*{
+    text-align: left;
+}
+
+.choicesOfRound div:first-of-type{
+    grid-area: computer;
+}
+
+.choiceComputer{
+    grid-area: choiceC;
+}
+
+.choicePlayer{
+    grid-area: choiceP;
+}
+
+.feedbackRound{
+    grid-area: feedback;
+    text-align: center;
+    border: white solid .5px;
+}
+
+#mainGameplay{
+    height: 100%;
+    justify-content: space-between;
+}
+
+.finalFeedback, .congrats{
+    background-color: rgb(94, 203, 241);
+    color: white;
 }
