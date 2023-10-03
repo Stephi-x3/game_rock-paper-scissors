@@ -100,10 +100,13 @@ main *{
 .choicesOfRound{
     display: grid;
     grid-template-areas: 
-        "computer player"
-        "choiceC choiceP";
+        "computer choiceC" "player choiceP";
     gap: 10px;
     color: white;
+}
+
+.choicesOfRound>*{
+    text-align: left;
 }
 
 .choicesOfRound div:first-of-type{
@@ -116,4 +119,9 @@ main *{
 
 .choicePlayer{
     grid-area: choiceP;
+}
+
+#mainGameplay{
+    justify-content: space-between;
+    height: 100%;
 }
