@@ -82,6 +82,7 @@ async function startGame(clickedButton){
     
     setTimeout(() => {
         document.getElementById('mainGameplay').style.display = 'none';
+        document.getElementById('backgroundOfGame').style.backgroundImage = 'url(Pictures/neverGiveUp.png)';
         document.getElementsByClassName('finalFeedback')[0].textContent = `Final Game Score:
         Computer: ${score_Computer} | You: ${score_Player}`;
     }, 1000);
