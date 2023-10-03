@@ -3,6 +3,11 @@ h1 a{
     color: black;
 }
 
+h2{
+    width: 100%;
+    padding: 10px 0px;
+}
+
 h3{
     color: white;
     -webkit-text-stroke: .5px black;
