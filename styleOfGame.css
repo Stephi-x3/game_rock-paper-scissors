@@ -62,11 +62,6 @@ main *{
     text-align: center;
 }
 
-.choicesOfRound{
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
 #start-chooseNbrRound{
     position: fixed;
     z-index: 2;
@@ -100,4 +95,25 @@ main *{
     text-align: center;
     margin: 5px;
     --bs-btn-border-color: white;
+}
+
+.choicesOfRound{
+    display: grid;
+    grid-template-areas: 
+        "computer player"
+        "choiceC choiceP";
+    gap: 10px;
+    color: white;
+}
+
+.choicesOfRound div:first-of-type{
+    grid-area: computer;
+}
+
+.choiceComputer{
+    grid-area: choiceC;
+}
+
+.choicePlayer{
+    grid-area: choiceP;
 }
