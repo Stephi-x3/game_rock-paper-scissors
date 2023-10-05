@@ -72,6 +72,10 @@ async function startGame(clickedButton){
         document.getElementsByClassName('choiceComputer')[0].textContent = `${computerSelection}`;
         document.getElementsByClassName('choicePlayer')[0].textContent = `${playerSelection}`;
         
+        if (currentRound === 1) {
+            document.querySelector('.feedbackRound').style.visibility = 'visible';
+        }
+
         winner = playRound(playerSelection, computerSelection, possibleShapes);
         if (winner == "playerWins") {
             score_Player++;
