@@ -80,6 +80,7 @@ async function startGame(clickedButton){
         }
     }
     
+    //end of game
     setTimeout(() => {
         document.getElementById('mainGameplay').style.display = 'none';
         document.getElementById('backgroundOfGame').style.backgroundImage = 'url(Pictures/neverGiveUp.png)';
