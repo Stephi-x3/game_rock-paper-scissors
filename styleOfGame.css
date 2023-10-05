@@ -102,6 +102,10 @@ main *{
     --bs-btn-border-color: white;
 }
 
+.nbrOfRounds:hover{
+    transform: scale(130%);
+}
+
 .choicesOfRound{
     display: grid;
     grid-template-areas: 
