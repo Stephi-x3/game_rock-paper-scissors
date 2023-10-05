@@ -29,6 +29,7 @@ h3{
 .transparent-black{
     background-color: rgba(32, 31, 31, 0.95);
     color: white;
+    backdrop-filter: blur(2px);
 }
 
 .card-group{
