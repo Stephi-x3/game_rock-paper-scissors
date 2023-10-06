@@ -6,3 +6,6 @@
 <a href="https://www.flaticon.com/de/kostenlose-icons/hallo" title="hallo Icons">Hallo Icon erstellt von Freepik - Flaticon</a><br>
 <a href="https://youtu.be/NTDBKgBY6JU?feature=shared" title="Rock-Paper-Scissors Icons">Rock-Paper-Scissors-Icons von Code Grind - Youtube-Channel</a>
 <a href="https://www.flaticon.com/free-icons/firework" title="firework icons">Firework icons created by Freepik - Flaticon</a>
+
+## Firework Particles
+<a href="https://particles.js.org/" title="firework">JavaScript Firework Particles</a>
